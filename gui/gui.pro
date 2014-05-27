@@ -25,7 +25,8 @@ HEADERS  += mainwindow.h \
     shapeknotsapp.h \
     drawprocess.h \
     configuration.h \
-    appsettings.h
+    appsettings.h \
+    defines.h
 
 FORMS    += mainwindow.ui \
     configuration.ui

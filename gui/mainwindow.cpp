@@ -102,3 +102,14 @@ void MainWindow::singleOffsetDialog()
     ui->m_singleOffsetSelected->setText(fileName);
 }
 
+
+void MainWindow::loadSettings()
+{
+
+}
+
+
+void MainWindow::saveSettings()
+{
+
+}

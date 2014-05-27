@@ -1,4 +1,5 @@
 #include "shapeknotsprocess.h"
+#include "appsettings.h"
 #include <QDebug>
 
 ShapeKnotsProcess::ShapeKnotsProcess(QObject *parent) :
@@ -44,12 +45,17 @@ void ShapeKnotsProcess::stdErr()
 void ShapeKnotsProcess::run()
 {
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
-    QStringList allArgs ;
     QString command;
-
-    env.insert("DATAPATH", "./data_tables/");
-
-    command = QString("./ShapeKnots ") + m_inputFile + QString(" ") +   m_outputFile + QString(" ") + m_argv.join(" ");
+    QSettings *settings = AppSettings::settings();
+    settings->beginGroup("ShapeKnots");
+    QString datapath = settings->value("DATAPATH","./data_tables").toString();
+    QString shapeknotsBin = settings->value("ExecutablePath", "./ShapeKnots").toString();
+    env.insert("DATAPATH", datapath);
+    settings->endGroup();
+    command = shapeknotsBin + QString(" ")
+            + m_inputFile + QString(" ")
+            + m_outputFile + QString(" ")
+            + m_argv.join(" ");
     //this->setArguments(allArgs);
     qDebug() << command;
     setProcessEnvironment(env);
