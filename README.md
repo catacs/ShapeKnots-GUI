@@ -3,8 +3,9 @@ ShapeKnots-GUI
 
 This is a tools for handling with a graphical interface the ShapeKnots command. The command belongs to [RNAStructure](http://rna.urmc.rochester.edu/RNAstructure.html) text-based package which is a set of commands to make RNA and DNA secondary structure prediction and analysis.
 
-The ShapeKnots command options can be found [here](http://rna.urmc.rochester.edu/Text/ShapeKnots.html).
+The ShapeKnots command definition can be found [here](http://rna.urmc.rochester.edu/Text/ShapeKnots.html).
 
+To download all RNAStructure package you can access the [download area](http://rna.urmc.rochester.edu/RNAstructureDownload.html)
 
 ##  License
     Copyright 2014 Catalin Stanciu
