@@ -1,3 +1,9 @@
+/***************************************************************
+ *  @author: Catalin Stanciu
+ *  @email: catacsdev@gmail.com
+ *  Copyright (C) 2014
+ * *************************************************************/
+
 #ifndef SHAPEKNOTSAPP_H
 #define SHAPEKNOTSAPP_H
 #include "mainwindow.h"

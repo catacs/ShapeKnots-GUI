@@ -1,3 +1,9 @@
+/***************************************************************
+ *  @author: Catalin Stanciu
+ *  @email: catacsdev@gmail.com
+ *  Copyright (C) 2014
+ * *************************************************************/
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QDebug>

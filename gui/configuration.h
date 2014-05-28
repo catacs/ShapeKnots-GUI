@@ -1,3 +1,9 @@
+/***************************************************************
+ *  @author: Catalin Stanciu
+ *  @email: catacsdev@gmail.com
+ *  Copyright (C) 2014
+ * *************************************************************/
+
 #ifndef CONFIGURATION_H
 #define CONFIGURATION_H
 

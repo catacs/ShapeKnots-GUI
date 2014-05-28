@@ -1,3 +1,9 @@
+/***************************************************************
+ *  @author: Catalin Stanciu
+ *  @email: catacsdev@gmail.com
+ *  Copyright (C) 2014
+ * *************************************************************/
+
 #ifndef DRAWPROCESS_H
 #define DRAWPROCESS_H
 
