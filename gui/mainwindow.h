@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "about.h"
+#include "configuration.h"
 #include <QMainWindow>
 
 namespace Ui {
@@ -35,12 +37,17 @@ private  slots:
     void diferentialShapeDialog();
     void doubleOffsetDialog();
     void singleOffsetDialog();
+    void showSettings();
+    void showAbout();
 
 private:
     void loadSettings();
     void saveSettings();
 
     Ui::MainWindow *ui;
+    Configuration m_config;
+    About   m_about;
+
 };
 
 #endif // MAINWINDOW_H

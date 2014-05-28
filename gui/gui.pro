@@ -18,7 +18,8 @@ SOURCES += main.cpp\
     shapeknotsapp.cpp \
     drawprocess.cpp \
     configuration.cpp \
-    appsettings.cpp
+    appsettings.cpp \
+    about.cpp
 
 HEADERS  += mainwindow.h \
     shapeknotsprocess.h \
@@ -26,7 +27,9 @@ HEADERS  += mainwindow.h \
     drawprocess.h \
     configuration.h \
     appsettings.h \
-    defines.h
+    defines.h \
+    about.h
 
 FORMS    += mainwindow.ui \
-    configuration.ui
+    configuration.ui \
+    about.ui

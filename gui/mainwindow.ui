@@ -423,8 +423,8 @@
     <property name="title">
      <string>Tools</string>
     </property>
-    <addaction name="actionSettings"/>
-    <addaction name="actionDraw"/>
+    <addaction name="m_actionSettings"/>
+    <addaction name="m_actionDraw"/>
    </widget>
    <addaction name="m_menuFile"/>
    <addaction name="m_menuTools"/>
@@ -449,12 +449,12 @@
     <string>Exit</string>
    </property>
   </action>
-  <action name="actionSettings">
+  <action name="m_actionSettings">
    <property name="text">
     <string>Settings</string>
    </property>
   </action>
-  <action name="actionDraw">
+  <action name="m_actionDraw">
    <property name="text">
     <string>Draw</string>
    </property>

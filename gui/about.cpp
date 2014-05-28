@@ -4,9 +4,17 @@
  *  Copyright (C) 2014
  * *************************************************************/
 
-#include "drawprocess.h"
+#include "about.h"
+#include "ui_about.h"
 
-DrawProcess::DrawProcess(QObject *parent) :
-    QProcess(parent)
+About::About(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::About)
 {
+    ui->setupUi(this);
+}
+
+About::~About()
+{
+    delete ui;
 }

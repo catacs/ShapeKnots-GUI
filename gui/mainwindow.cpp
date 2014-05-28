@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QDebug>
 #include <QFileDialog>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -7,10 +8,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    m_config.hide();
+    m_about.hide();
     loadSettings();
 
     ui->m_optionsWidget->setVisible(ui->m_optionsCheckBox->isChecked());
-    connect(ui->m_actionExit,SIGNAL(toggled(bool)), this, SIGNAL(exit()));
+    connect(ui->m_actionExit,SIGNAL(triggered()), this, SIGNAL(exit()));
+    connect(ui->m_actionSettings,SIGNAL(triggered()),this, SLOT(showSettings()));
+    connect(ui->m_actionAbouts,SIGNAL(triggered()),this, SLOT(showAbout()));
 
     connect(ui->m_runButton, SIGNAL(clicked()),
             this, SIGNAL(start()));
@@ -102,12 +107,20 @@ void MainWindow::singleOffsetDialog()
     ui->m_singleOffsetSelected->setText(fileName);
 }
 
+void MainWindow::showSettings()
+{
+    m_config.show();
+}
+
+void MainWindow::showAbout()
+{
+    m_about.show();
+}
 
 void MainWindow::loadSettings()
 {
 
 }
-
 
 void MainWindow::saveSettings()
 {
