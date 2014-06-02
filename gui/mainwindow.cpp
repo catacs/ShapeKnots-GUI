@@ -65,6 +65,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->m_optionsCheckBox,SIGNAL(clicked(bool)),
             ui->m_optionsWidget, SLOT(setVisible(bool)));
+    connect(ui->m_optionsCheckBox,SIGNAL(clicked(bool)),
+            this, SIGNAL(optionsToggle(bool)));
 }
 
 MainWindow::~MainWindow()

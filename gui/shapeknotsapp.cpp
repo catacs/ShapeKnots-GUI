@@ -28,6 +28,10 @@ ShapeKnotsApp::ShapeKnotsApp(QObject *parent)
                     &m_process, SLOT(setInputFile(const QString&)));
     connect(&m_mainWindow, SIGNAL(outputSelected(const QString&)),
                     &m_process, SLOT(setOutputFile(const QString&)));
+    connect(&m_mainWindow, SIGNAL(shapeSelected(const QString&)),
+                    &m_process, SLOT(setShapeFile(const QString&)));
+    connect(&m_mainWindow, SIGNAL(optionsToggle(bool)),
+                    &m_process, SLOT(setOptionals(bool)));
     connect(&m_mainWindow, SIGNAL(exit()), qApp, SLOT(quit()));
     m_mainWindow.show();
 }

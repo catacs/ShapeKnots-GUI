@@ -43,6 +43,7 @@ signals:
     void diferentialShapeSelected(const QString& outputFile);
     void doubleOffsetSelected(const QString& outputFile);
     void singleOffsetSelected(const QString& outputFile);
+    void optionsToggle(bool selected);
     void exit();
 
 public slots:

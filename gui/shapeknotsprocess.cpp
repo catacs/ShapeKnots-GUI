@@ -21,8 +21,7 @@
 #include <QDebug>
 
 ShapeKnotsProcess::ShapeKnotsProcess(QObject *parent) :
-    QProcess(parent),
-    m_argv(QString())
+    QProcess(parent)
 {
     connect(this, SIGNAL(readyReadStandardOutput()),
             this, SLOT(stdOut()));
@@ -35,11 +34,6 @@ ShapeKnotsProcess::ShapeKnotsProcess(QObject *parent) :
 ShapeKnotsProcess::~ShapeKnotsProcess()
 {
     terminate();
-}
-
-void ShapeKnotsProcess::setArgument(const QString &option, const QString &value)
-{
-    m_argv << option << " " << value;
 }
 
 void ShapeKnotsProcess::stdOut()
@@ -65,17 +59,26 @@ void ShapeKnotsProcess::run()
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
     QString command;
     QSettings *settings = AppSettings::settings();
+
     settings->beginGroup("ShapeKnots");
     QString datapath = settings->value("DATAPATH","./data_tables").toString();
     QString shapeknotsBin = settings->value("ExecutablePath", "./ShapeKnots").toString();
     env.insert("DATAPATH", datapath);
     settings->endGroup();
+
+    QStringList allArgs;
+    //read options from gui
+    if (m_optionals){
+        if (!m_shapeFile.isEmpty())
+            allArgs.append("-sh " + m_shapeFile);
+    }
+
     command = shapeknotsBin + QString(" ")
             + m_inputFile + QString(" ")
-            + m_outputFile + QString(" ")
-            + m_argv.join(" ");
-    //this->setArguments(allArgs);
-    qDebug() << command;
+            + m_outputFile + QString(" ");
+
+
+    this->setArguments(allArgs);
     setProcessEnvironment(env);
     start(command);
 }
@@ -89,6 +92,27 @@ void ShapeKnotsProcess::setOutputFile(const QString &outputFile)
     qDebug() << outputFile;
     m_outputFile = outputFile;
 }
+bool ShapeKnotsProcess::optionals() const
+{
+    return m_optionals;
+}
+
+void ShapeKnotsProcess::setOptionals(bool optionals)
+{
+    m_optionals = optionals;
+}
+
+QString ShapeKnotsProcess::shapeFile() const
+{
+    return m_shapeFile;
+}
+
+void ShapeKnotsProcess::setShapeFile(const QString &shapeFile)
+{
+    qDebug() << shapeFile;
+    m_shapeFile = shapeFile;
+}
+
 
 QString ShapeKnotsProcess::inputFile() const
 {

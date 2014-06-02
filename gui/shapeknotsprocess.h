@@ -28,9 +28,10 @@ class ShapeKnotsProcess : public QProcess
 public:
     explicit ShapeKnotsProcess(QObject *parent = 0);
     ~ShapeKnotsProcess();
-    void setArgument(const QString& option,const QString& value);
     QString inputFile() const;
     QString outputFile() const;
+    QString shapeFile() const;
+    bool optionals() const;
 
 
 signals:
@@ -42,11 +43,14 @@ public slots:
     void run();
     void setInputFile(const QString &inputFile);
     void setOutputFile(const QString &outputFile);
+    void setShapeFile(const QString &shapeFile);
+    void setOptionals(bool applyOptionals);
 
 private:
-    QStringList m_argv;
     QString m_inputFile;
     QString m_outputFile;
+    QString m_shapeFile;
+    bool m_optionals;
 };
 
 #endif // SHAPEKNOTSPROCESS_H
