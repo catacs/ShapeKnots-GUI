@@ -33,3 +33,6 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui \
     configuration.ui \
     about.ui
+ICON = /img/app.ico
+RESOURCES += \
+    resources.qrc

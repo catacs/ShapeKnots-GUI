@@ -67,6 +67,10 @@ MainWindow::MainWindow(QWidget *parent) :
             ui->m_optionsWidget, SLOT(setVisible(bool)));
     connect(ui->m_optionsCheckBox,SIGNAL(clicked(bool)),
             this, SIGNAL(optionsToggle(bool)));
+
+    //Setting application icon
+    QIcon icon(":img/app.png");
+    this->setWindowIcon(icon);
 }
 
 MainWindow::~MainWindow()

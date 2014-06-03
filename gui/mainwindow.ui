@@ -107,40 +107,56 @@
        <item row="5" column="0" colspan="4">
         <widget class="QWidget" name="m_spinBoxedWidget" native="true">
          <layout class="QGridLayout" name="gridLayout_4">
-          <item row="0" column="3">
-           <widget class="QLabel" name="m_siLabel">
+          <item row="0" column="1">
+           <widget class="QLabel" name="m_dhmLabel">
             <property name="text">
-             <string>SI:</string>
+             <string>DSM:</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="7">
-           <spacer name="horizontalSpacer">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+          <item row="1" column="2">
+           <widget class="QSpinBox" name="m_mspinBox">
+            <property name="maximum">
+             <number>1000000</number>
             </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
+           </widget>
+          </item>
+          <item row="1" column="4">
+           <widget class="QLabel" name="m_imLabel">
+            <property name="text">
+             <string>IM:</string>
             </property>
-           </spacer>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QDoubleSpinBox" name="m_dsmDoubleSpinBox">
+            <property name="value">
+             <double>2.110000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="2">
+           <widget class="QSpinBox" name="m_iwSpinBox">
+            <property name="maximum">
+             <number>1000000</number>
+            </property>
+           </widget>
           </item>
           <item row="2" column="4">
-           <widget class="QDoubleSpinBox" name="m_smDoubleSpinBox">
-            <property name="minimum">
-             <double>-10000.000000000000000</double>
-            </property>
-            <property name="maximum">
-             <double>10000.000000000000000</double>
-            </property>
-            <property name="value">
-             <double>1.800000000000000</double>
+           <widget class="QLabel" name="m_smLabel">
+            <property name="text">
+             <string>SM:</string>
             </property>
            </widget>
           </item>
-          <item row="0" column="4">
+          <item row="1" column="1">
+           <widget class="QLabel" name="m_mLabel">
+            <property name="text">
+             <string>M:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="5">
            <widget class="QDoubleSpinBox" name="m_siDoubleSpinBox">
             <property name="minimum">
              <double>-10000.000000000000000</double>
@@ -153,135 +169,113 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="m_mLabel">
-            <property name="text">
-             <string>M:</string>
+          <item row="3" column="8">
+           <widget class="QSpinBox" name="m_phSpinBox">
+            <property name="maximum">
+             <number>1000000</number>
             </property>
-           </widget>
-          </item>
-          <item row="2" column="3">
-           <widget class="QLabel" name="m_smLabel">
-            <property name="text">
-             <string>SM:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QDoubleSpinBox" name="m_dsmDoubleSpinBox">
             <property name="value">
-             <double>2.110000000000000</double>
+             <number>100</number>
             </property>
            </widget>
           </item>
-          <item row="1" column="3">
-           <widget class="QLabel" name="m_imLabel">
+          <item row="2" column="5">
+           <widget class="QDoubleSpinBox" name="m_smDoubleSpinBox">
+            <property name="minimum">
+             <double>-10000.000000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>10000.000000000000000</double>
+            </property>
+            <property name="value">
+             <double>1.800000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="9">
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="0">
+           <widget class="QCheckBox" name="m_useMCheckbox">
             <property name="text">
-             <string>IM:</string>
+             <string/>
             </property>
            </widget>
           </item>
-          <item row="3" column="1">
-           <widget class="QSpinBox" name="m_iwSpinBox">
-            <property name="maximum">
-             <number>1000000</number>
+          <item row="0" column="4">
+           <widget class="QLabel" name="m_siLabel">
+            <property name="text">
+             <string>SI:</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="1">
-           <widget class="QSpinBox" name="m_mspinBox">
-            <property name="maximum">
-             <number>1000000</number>
+          <item row="0" column="3">
+           <widget class="QCheckBox" name="m_useSICheckbox">
+            <property name="text">
+             <string/>
             </property>
            </widget>
           </item>
           <item row="0" column="0">
-           <widget class="QLabel" name="m_dhmLabel">
+           <widget class="QCheckBox" name="m_useDSMCheckbox">
             <property name="text">
-             <string>DSM:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="3">
-           <widget class="QLabel" name="m_wLabel">
-            <property name="text">
-             <string>W:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QSpinBox" name="m_ipSpinBox">
-            <property name="maximum">
-             <number>100</number>
-            </property>
-            <property name="value">
-             <number>20</number>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="4">
-           <widget class="QSpinBox" name="m_imSpinBox">
-            <property name="maximum">
-             <number>100000</number>
-            </property>
-            <property name="value">
-             <number>100</number>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="m_ipLabel">
-            <property name="text">
-             <string>IP:</string>
+             <string/>
             </property>
            </widget>
           </item>
           <item row="3" column="0">
-           <widget class="QLabel" name="m_iwLabel">
+           <widget class="QCheckBox" name="m_useIWCheckbox">
             <property name="text">
-             <string>IW:</string>
+             <string/>
             </property>
            </widget>
           </item>
-          <item row="3" column="4">
-           <widget class="QSpinBox" name="m_wSpinBox"/>
-          </item>
-          <item row="2" column="5">
-           <widget class="QLabel" name="m_p2Label">
+          <item row="1" column="3">
+           <widget class="QCheckBox" name="m_useIMCheckbox">
             <property name="text">
-             <string>P2</string>
+             <string/>
             </property>
            </widget>
           </item>
-          <item row="2" column="6">
-           <widget class="QDoubleSpinBox" name="m_p2DoubleSpinBox">
-            <property name="value">
-             <double>0.650000000000000</double>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="6">
-           <widget class="QDoubleSpinBox" name="m_p1DoubleSpinBox">
-            <property name="value">
-             <double>0.350000000000000</double>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="5">
-           <widget class="QLabel" name="m_p1Label">
+          <item row="3" column="3">
+           <widget class="QCheckBox" name="m_useWCheckbox">
             <property name="text">
-             <string>P1:</string>
+             <string/>
             </property>
            </widget>
           </item>
-          <item row="0" column="5">
+          <item row="2" column="0">
+           <widget class="QCheckBox" name="m_useIPCheckbox">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="7">
+           <widget class="QLabel" name="m_phLabel">
+            <property name="text">
+             <string>PH:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="7">
            <widget class="QLabel" name="m_pLabel">
             <property name="text">
              <string>P:</string>
             </property>
            </widget>
           </item>
-          <item row="0" column="6">
+          <item row="0" column="8">
            <widget class="QSpinBox" name="m_pSpinBox">
             <property name="maximum">
              <number>100</number>
@@ -291,20 +285,110 @@
             </property>
            </widget>
           </item>
-          <item row="3" column="5">
-           <widget class="QLabel" name="m_phLabel">
+          <item row="1" column="7">
+           <widget class="QLabel" name="m_p1Label">
             <property name="text">
-             <string>PH:</string>
+             <string>P1:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="3">
+           <widget class="QCheckBox" name="m_useSMCheckbox">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="8">
+           <widget class="QDoubleSpinBox" name="m_p1DoubleSpinBox">
+            <property name="value">
+             <double>0.350000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="7">
+           <widget class="QLabel" name="m_p2Label">
+            <property name="text">
+             <string>P2</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="8">
+           <widget class="QDoubleSpinBox" name="m_p2DoubleSpinBox">
+            <property name="value">
+             <double>0.650000000000000</double>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="5">
+           <widget class="QSpinBox" name="m_wSpinBox"/>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLabel" name="m_iwLabel">
+            <property name="text">
+             <string>IW:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLabel" name="m_ipLabel">
+            <property name="text">
+             <string>IP:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="5">
+           <widget class="QSpinBox" name="m_imSpinBox">
+            <property name="maximum">
+             <number>100000</number>
+            </property>
+            <property name="value">
+             <number>100</number>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QSpinBox" name="m_ipSpinBox">
+            <property name="maximum">
+             <number>100</number>
+            </property>
+            <property name="value">
+             <number>20</number>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="4">
+           <widget class="QLabel" name="m_wLabel">
+            <property name="text">
+             <string>W:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="6">
+           <widget class="QCheckBox" name="m_usePCheckbox">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="6">
+           <widget class="QCheckBox" name="m_useP1Checkbox">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="6">
+           <widget class="QCheckBox" name="m_useP2Checkbox">
+            <property name="text">
+             <string/>
             </property>
            </widget>
           </item>
           <item row="3" column="6">
-           <widget class="QSpinBox" name="m_phSpinBox">
-            <property name="maximum">
-             <number>1000000</number>
-            </property>
-            <property name="value">
-             <number>100</number>
+           <widget class="QCheckBox" name="m_usePHCheckbox">
+            <property name="text">
+             <string/>
             </property>
            </widget>
           </item>
@@ -431,11 +515,17 @@
    <addaction name="menuAbout"/>
   </widget>
   <widget class="QToolBar" name="m_mainToolBar">
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
    </attribute>
    <attribute name="toolBarBreak">
-    <bool>false</bool>
+    <bool>true</bool>
    </attribute>
   </widget>
   <widget class="QStatusBar" name="m_statusBar"/>

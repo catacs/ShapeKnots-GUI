@@ -18,6 +18,7 @@
 
 #include "shapeknotsprocess.h"
 #include "appsettings.h"
+#include <QFile>
 #include <QDebug>
 
 ShapeKnotsProcess::ShapeKnotsProcess(QObject *parent) :
@@ -69,14 +70,19 @@ void ShapeKnotsProcess::run()
     QStringList allArgs;
     //read options from gui
     if (m_optionals){
-        if (!m_shapeFile.isEmpty())
+        if (!m_shapeFile.isEmpty() && QFile::exists(m_shapeFile))
             allArgs.append("-sh " + m_shapeFile);
+        if (!m_differentialShapeFile.isEmpty() && QFile::exists(m_differentialShapeFile))
+            allArgs.append("-dsh " + m_differentialShapeFile);
+        if (!m_singleOffsetFile.isEmpty() && QFile::exists(m_singleOffsetFile))
+            allArgs.append("-sso " + m_singleOffsetFile);
+        if (!m_doubleOffsetFile.isEmpty() && QFile::exists(m_doubleOffsetFile))
+            allArgs.append("-dso " + m_doubleOffsetFile);
     }
 
     command = shapeknotsBin + QString(" ")
             + m_inputFile + QString(" ")
             + m_outputFile + QString(" ");
-
 
     this->setArguments(allArgs);
     setProcessEnvironment(env);
@@ -101,6 +107,39 @@ void ShapeKnotsProcess::setOptionals(bool optionals)
 {
     m_optionals = optionals;
 }
+QString ShapeKnotsProcess::singleOffsetFile() const
+{
+    return m_singleOffsetFile;
+}
+
+void ShapeKnotsProcess::setSingleOffsetFile(const QString &singleOffsetFile)
+{
+    qDebug() << singleOffsetFile;
+    m_singleOffsetFile = singleOffsetFile;
+}
+
+QString ShapeKnotsProcess::doubleOffsetFile() const
+{
+    return m_doubleOffsetFile;
+}
+
+void ShapeKnotsProcess::setDoubleOffsetFile(const QString &doubleOffsetFile)
+{
+    qDebug() << doubleOffsetFile ;
+    m_doubleOffsetFile = doubleOffsetFile;
+}
+
+QString ShapeKnotsProcess::differentialShapeFile() const
+{
+    return m_differentialShapeFile;
+}
+
+void ShapeKnotsProcess::setDifferentialShapeFile(const QString &differentialShapeFile)
+{
+    qDebug() << differentialShapeFile ;
+    m_differentialShapeFile = differentialShapeFile;
+}
+
 
 QString ShapeKnotsProcess::shapeFile() const
 {

@@ -31,8 +31,10 @@ public:
     QString inputFile() const;
     QString outputFile() const;
     QString shapeFile() const;
+    QString differentialShapeFile() const;
+    QString singleOffsetFile() const;
+    QString doubleOffsetFile() const;
     bool optionals() const;
-
 
 signals:
     void line(const QString& line);
@@ -44,12 +46,19 @@ public slots:
     void setInputFile(const QString &inputFile);
     void setOutputFile(const QString &outputFile);
     void setShapeFile(const QString &shapeFile);
+    void setDifferentialShapeFile(const QString &differentialShapeFile);
+    void setSingleOffsetFile(const QString &singleOffsetFile);
+    void setDoubleOffsetFile(const QString &doubleOffsetFile);
     void setOptionals(bool applyOptionals);
 
 private:
     QString m_inputFile;
     QString m_outputFile;
     QString m_shapeFile;
+    QString m_differentialShapeFile;
+    QString m_singleOffsetFile;
+    QString m_doubleOffsetFile;
+
     bool m_optionals;
 };
 

@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>img/app.ico</file>
+    </qresource>
+    <qresource prefix="/languages"/>
+</RCC>
