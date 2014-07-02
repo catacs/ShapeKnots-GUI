@@ -68,6 +68,10 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->m_optionsCheckBox,SIGNAL(clicked(bool)),
             this, SIGNAL(optionsToggle(bool)));
 
+
+    // TODO - We disable options that are not implemented
+    ui->m_spinBoxedWidget->setVisible(false);
+    ui->m_actionDraw->setVisible(false);
     //Setting application icon
     QIcon icon(":img/app.png");
     this->setWindowIcon(icon);
