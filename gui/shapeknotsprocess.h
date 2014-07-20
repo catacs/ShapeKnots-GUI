@@ -43,6 +43,7 @@ public slots:
     void stdOut();
     void stdErr();
     void run();
+    void cancel();
     void setInputFile(const QString &inputFile);
     void setOutputFile(const QString &outputFile);
     void setShapeFile(const QString &shapeFile);

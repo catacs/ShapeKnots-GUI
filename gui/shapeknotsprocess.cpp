@@ -88,6 +88,12 @@ void ShapeKnotsProcess::run()
     setProcessEnvironment(env);
     start(command);
 }
+
+void ShapeKnotsProcess::cancel()
+{
+    this->kill();
+}
+
 QString ShapeKnotsProcess::outputFile() const
 {
     return m_outputFile;

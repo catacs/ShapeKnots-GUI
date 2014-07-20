@@ -17,12 +17,14 @@
  *****************************************************************************/
 #include "about.h"
 #include "ui_about.h"
+#include "appsettings.h"
 
 About::About(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::About)
 {
     ui->setupUi(this);
+    ui->m_versionLabel->setText(AppSettings::version());
 }
 
 About::~About()

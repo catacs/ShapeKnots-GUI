@@ -22,6 +22,7 @@ ShapeKnotsApp::ShapeKnotsApp(QObject *parent)
     :QObject(parent)
 {
     connect(&m_mainWindow,SIGNAL(start()),&m_process,SLOT(run()));
+    connect(&m_mainWindow,SIGNAL(cancel()),&m_process,SLOT(cancel()));
     connect(&m_process, SIGNAL(line(const QString&)),
                     &m_mainWindow, SLOT(log(const QString&)));
     connect(&m_mainWindow, SIGNAL(inputSelected(const QString&)),

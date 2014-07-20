@@ -26,6 +26,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->m_cancelButton->setDisabled(true);
     m_config.hide();
     m_about.hide();
     loadSettings();
@@ -36,7 +37,10 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->m_actionAbouts,SIGNAL(triggered()),this, SLOT(showAbout()));
 
     connect(ui->m_runButton, SIGNAL(clicked()),
-            this, SIGNAL(start()));
+            this, SLOT(startRun()));
+    connect(ui->m_cancelButton, SIGNAL(clicked()),
+            this, SLOT(cancelRun()));
+
     connect(ui->m_inputBrowse, SIGNAL(clicked()),
             this, SLOT(inputDialog()));
     connect(ui->m_outputBrowse, SIGNAL(clicked()),
@@ -67,6 +71,7 @@ MainWindow::MainWindow(QWidget *parent) :
             ui->m_optionsWidget, SLOT(setVisible(bool)));
     connect(ui->m_optionsCheckBox,SIGNAL(clicked(bool)),
             this, SIGNAL(optionsToggle(bool)));
+
 
 
     // TODO - We disable options that are not implemented
@@ -143,6 +148,20 @@ void MainWindow::showSettings()
 void MainWindow::showAbout()
 {
     m_about.show();
+}
+
+void MainWindow::startRun()
+{
+    ui->m_runButton->setDisabled(true);
+    ui->m_cancelButton->setDisabled(false);
+    emit start();
+}
+
+void MainWindow::cancelRun()
+{
+    ui->m_runButton->setDisabled(false);
+    ui->m_cancelButton->setDisabled(true);
+    emit cancel();
 }
 
 void MainWindow::loadSettings()

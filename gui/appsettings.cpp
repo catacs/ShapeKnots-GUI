@@ -27,7 +27,7 @@ AppSettings::AppSettings()
 
 QString AppSettings::version()
 {
-    return "";
+    return "0.0.1 beta";
 }
 
 QSettings *AppSettings::settings()
