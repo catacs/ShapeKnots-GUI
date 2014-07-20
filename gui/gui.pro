@@ -36,3 +36,8 @@ FORMS    += mainwindow.ui \
 ICON = /img/app.ico
 RESOURCES += \
     resources.qrc
+
+win32 {
+RC_FILE += img/icon.rc
+QMAKE_LFLAGS += -static -static-libgcc -static-libstdc++
+}
