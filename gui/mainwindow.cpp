@@ -20,6 +20,8 @@
 #include "ui_mainwindow.h"
 #include <QDebug>
 #include <QFileDialog>
+#include "appsettings.h"
+#include <QTranslator>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -73,8 +75,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->m_spinBoxedWidget->setVisible(false);
     ui->m_actionDraw->setVisible(false);
     //Setting application icon
-    QIcon icon(":img/app.png");
+    QIcon icon(":img/app.ico");
     this->setWindowIcon(icon);
+
+    //Configuration bindings
+    connect(&m_config, SIGNAL(acceptRequest()),
+            this, SLOT(saveSettings()));
 }
 
 MainWindow::~MainWindow()
@@ -147,10 +153,42 @@ void MainWindow::showAbout()
 
 void MainWindow::loadSettings()
 {
-
+    QSettings *settings = AppSettings::settings();
+    int index = settings->value("Language/Language",QString(DEFAULT_LANGUAGE)).toInt();
+    QTranslator * translator;
+    translator = new QTranslator;
+    if (translator->load(":/lang/lang_" + AppSettings::language(index) + ".qm"))
+        qApp->installTranslator(translator);
+    else
+        qDebug() << "Failed to load language " << index << "  :/lang/lang_" + AppSettings::language(index) + ".qm";
 }
 
 void MainWindow::saveSettings()
 {
 
+    QSettings *settings = AppSettings::settings();
+    settings->setValue("ShapeKnotsPath",m_config.shapeKnotsPath());
+    settings->setValue("DrawPath",m_config.drawPath());
+    settings->setValue("DATAPATH",m_config.datapath());
+
+    settings->beginGroup("Language");
+    settings->setValue("Language", m_config.language());
+    settings->endGroup();
+    qDebug () <<  m_config.language() << " " << AppSettings::language(m_config.language());
+    m_config.close();
+    // after save settigns we must reload configuration
+    loadSettings();
+}
+
+
+void MainWindow::changeEvent(QEvent* event)
+{
+    if (event->type() == QEvent::LanguageChange)
+    {
+        // retranslate designer form (single inheritance approach)
+        ui->retranslateUi(this);
+    }
+
+    // remember to call base class implementation
+    QMainWindow::changeEvent(event);
 }

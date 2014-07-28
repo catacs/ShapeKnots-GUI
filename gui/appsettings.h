@@ -21,6 +21,7 @@
 
 #include <QString>
 #include <QSettings>
+#include "appconstants.h"
 
 class AppSettings
 {
@@ -29,6 +30,7 @@ public:
     static QString version();
     static QSettings *settings();
     static QString settingsFile();
+    static QString language(int languageIndex);
 private:
     static QSettings *m_settings;
 };

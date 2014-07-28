@@ -28,11 +28,17 @@ HEADERS  += mainwindow.h \
     configuration.h \
     appsettings.h \
     defines.h \
-    about.h
+    about.h \
+    appconstants.h
 
 FORMS    += mainwindow.ui \
     configuration.ui \
     about.ui
 ICON = /img/app.ico
-RESOURCES += \
-    resources.qrc
+RESOURCES += resources.qrc
+
+TRANSLATIONS    +=  lang/lang_en.ts \
+                    lang/lang_es.ts \
+                    lang/lang_fr.ts \
+                    lang/lang_ro.ts
+

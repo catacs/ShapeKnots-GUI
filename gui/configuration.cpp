@@ -18,15 +18,67 @@
 
 #include "configuration.h"
 #include "ui_configuration.h"
+#include "appsettings.h"
 
 Configuration::Configuration(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Configuration)
 {
     ui->setupUi(this);
+
+    QSettings *settings = AppSettings::settings();
+    int languageIndex = settings->value("Language/Language",0).toInt();
+    ui->comboBox->setCurrentIndex(languageIndex);
+
+    connect(ui->m_cancelButton, SIGNAL(clicked()),
+            this, SLOT(closeRequest()));
+    connect(ui->m_acceptButton, SIGNAL(clicked()),
+            this, SIGNAL(acceptRequest()));
 }
 
 Configuration::~Configuration()
 {
     delete ui;
+}
+
+
+void Configuration::closeRequest()
+{
+    this->close();
+}
+
+
+void Configuration::changeEvent(QEvent *event)
+{
+    if (event->type() == QEvent::LanguageChange)
+    {
+            // retranslate designer form (single inheritance approach)
+            ui->retranslateUi(this);
+    }
+
+    // remember to call base class implementation
+    QDialog::changeEvent(event);
+}
+
+
+QString Configuration::shapeKnotsPath()
+{
+    return ui->m_shapeKnotsPathEdit->text();
+}
+
+
+QString Configuration::datapath()
+{
+    return ui->m_datatablesPathEdit->text();
+}
+
+
+QString Configuration::drawPath()
+{
+    return ui->m_drawPathEdit->text();
+}
+
+int Configuration::language()
+{
+    return ui->comboBox->currentIndex();
 }

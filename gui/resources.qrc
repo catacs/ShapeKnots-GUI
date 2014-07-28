@@ -1,6 +1,15 @@
 <RCC>
     <qresource prefix="/">
         <file>img/app.ico</file>
+        <file>lang/lang_es.qm</file>
+        <file>lang/lang_en.qm</file>
+        <file>lang/lang_fr.qm</file>
+        <file>lang/lang_ro.qm</file>
     </qresource>
-    <qresource prefix="/languages"/>
+    <qresource prefix="/flag">
+        <file>img/32x32/es.png</file>
+        <file>img/32x32/fr.png</file>
+        <file>img/32x32/ro.png</file>
+        <file>img/32x32/uk.png</file>
+    </qresource>
 </RCC>

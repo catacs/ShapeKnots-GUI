@@ -59,10 +59,12 @@ private  slots:
     void showSettings();
     void showAbout();
 
-private:
+private slots:
     void loadSettings();
     void saveSettings();
-
+protected:
+    void changeEvent(QEvent *event);
+private:
     Ui::MainWindow *ui;
     Configuration m_config;
     About   m_about;

@@ -1,0 +1,8 @@
+#ifndef APPCONSTANTS_H
+#define APPCONSTANTS_H
+
+#define DEFAULT_LANGUAGE "en"
+#define DEFAULT_APPNAME "ShapeKnotsGUI"
+#define DEFAULT_CONFIGURATION_FILENAME "shapeknotsgui"
+
+#endif // APPCONSTANTS_H

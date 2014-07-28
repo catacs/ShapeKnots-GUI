@@ -18,30 +18,59 @@
 
 #include "appsettings.h"
 #include <QApplication>
+#include <QDir>
+#include <QDebug>
 
 QSettings *AppSettings::m_settings=0;
+
 
 AppSettings::AppSettings()
 {
 }
 
+
 QString AppSettings::version()
 {
-    return "";
+    return "DEBUG";
 }
+
 
 QSettings *AppSettings::settings()
 {
+    qDebug() << settingsFile();
     if (!m_settings)
         m_settings = new QSettings(settingsFile(),  QSettings::NativeFormat);
     return m_settings;
 }
 
+
 QString AppSettings::settingsFile()
 {
 #ifdef WIN32
-    return QApplication::applicationDirPath().left(1) + QString("shapeknotsgui.ini");
+    return QString("%appdata%/") + QString(DEFAULT_APPNAME) + QString(DEFAULT_CONFIGURATION_FILENAME) + QString(".ini");
 #else
-    return QApplication::applicationDirPath().left(1) + QString("shapeknotsgui.conf");
+    return QDir::homePath() +"/.config/" + QString(DEFAULT_APPNAME) + QString(DEFAULT_CONFIGURATION_FILENAME) +QString(".conf");
 #endif
+}
+
+
+QString AppSettings::language(const int languageIndex)
+{
+    switch (languageIndex) {
+    case 0:
+        return "en";
+        break;
+    case 1:
+        return "es";
+        break;
+    case 2:
+        return "fr";
+        break;
+    case 3:
+        return "ro";
+        break;
+    default:
+        break;
+    }
+    return "en";
 }

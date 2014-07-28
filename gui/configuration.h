@@ -21,6 +21,7 @@
 
 #include <QDialog>
 
+
 namespace Ui {
 class Configuration;
 }
@@ -28,13 +29,28 @@ class Configuration;
 class Configuration : public QDialog
 {
     Q_OBJECT
-
 public:
     explicit Configuration(QWidget *parent = 0);
     ~Configuration();
 
+    QString shapeKnotsPath();
+    QString datapath();
+    QString drawPath();
+    int language();
+
+signals:
+    void acceptRequest();
+
+private slots:
+    void closeRequest();
+
+protected:
+    void changeEvent(QEvent *event);
 private:
+
     Ui::Configuration *ui;
+
+    friend class MainWindow;
 };
 
 #endif // CONFIGURATION_H
