@@ -32,7 +32,8 @@ class About : public QDialog
 public:
     explicit About(QWidget *parent = 0);
     ~About();
-
+protected:
+    void changeEvent(QEvent *event);
 private:
     Ui::About *ui;
 };

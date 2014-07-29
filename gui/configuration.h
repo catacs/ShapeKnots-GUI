@@ -43,6 +43,9 @@ signals:
 
 private slots:
     void closeRequest();
+    void selectShapeKnotsDialog();
+    void selectDrawDialog();
+    void selectDatapathDialog();
 
 protected:
     void changeEvent(QEvent *event);

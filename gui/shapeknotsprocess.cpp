@@ -19,7 +19,6 @@
 #include "shapeknotsprocess.h"
 #include "appsettings.h"
 #include <QFile>
-#include <QDebug>
 
 ShapeKnotsProcess::ShapeKnotsProcess(QObject *parent) :
     QProcess(parent)
@@ -95,7 +94,6 @@ QString ShapeKnotsProcess::outputFile() const
 
 void ShapeKnotsProcess::setOutputFile(const QString &outputFile)
 {
-    qDebug() << outputFile;
     m_outputFile = outputFile;
 }
 bool ShapeKnotsProcess::optionals() const
@@ -114,7 +112,6 @@ QString ShapeKnotsProcess::singleOffsetFile() const
 
 void ShapeKnotsProcess::setSingleOffsetFile(const QString &singleOffsetFile)
 {
-    qDebug() << singleOffsetFile;
     m_singleOffsetFile = singleOffsetFile;
 }
 
@@ -125,7 +122,6 @@ QString ShapeKnotsProcess::doubleOffsetFile() const
 
 void ShapeKnotsProcess::setDoubleOffsetFile(const QString &doubleOffsetFile)
 {
-    qDebug() << doubleOffsetFile ;
     m_doubleOffsetFile = doubleOffsetFile;
 }
 
@@ -136,7 +132,6 @@ QString ShapeKnotsProcess::differentialShapeFile() const
 
 void ShapeKnotsProcess::setDifferentialShapeFile(const QString &differentialShapeFile)
 {
-    qDebug() << differentialShapeFile ;
     m_differentialShapeFile = differentialShapeFile;
 }
 
@@ -148,7 +143,6 @@ QString ShapeKnotsProcess::shapeFile() const
 
 void ShapeKnotsProcess::setShapeFile(const QString &shapeFile)
 {
-    qDebug() << shapeFile;
     m_shapeFile = shapeFile;
 }
 
@@ -160,7 +154,6 @@ QString ShapeKnotsProcess::inputFile() const
 
 void ShapeKnotsProcess::setInputFile(const QString &inputFile)
 {
-    qDebug() << inputFile;
     m_inputFile = inputFile;
 }
 

@@ -29,3 +29,16 @@ About::~About()
 {
     delete ui;
 }
+
+
+void About::changeEvent(QEvent *event)
+{
+    if (event->type() == QEvent::LanguageChange)
+    {
+            // retranslate designer form (single inheritance approach)
+            ui->retranslateUi(this);
+    }
+
+    // remember to call base class implementation
+    QDialog::changeEvent(event);
+}

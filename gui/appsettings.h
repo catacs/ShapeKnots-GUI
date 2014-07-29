@@ -26,6 +26,8 @@
 class AppSettings
 {
 public:
+    enum Language {en, es, fr, ro};
+
     AppSettings();
     static QString version();
     static QSettings *settings();

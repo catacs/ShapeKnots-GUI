@@ -18,10 +18,10 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QDebug>
 #include <QFileDialog>
 #include "appsettings.h"
 #include <QTranslator>
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -174,8 +174,8 @@ void MainWindow::saveSettings()
     settings->beginGroup("Language");
     settings->setValue("Language", m_config.language());
     settings->endGroup();
-    qDebug () <<  m_config.language() << " " << AppSettings::language(m_config.language());
     m_config.close();
+
     // after save settigns we must reload configuration
     loadSettings();
 }

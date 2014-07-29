@@ -19,6 +19,7 @@
 #include "configuration.h"
 #include "ui_configuration.h"
 #include "appsettings.h"
+#include <QFileDialog>
 
 Configuration::Configuration(QWidget *parent) :
     QDialog(parent),
@@ -34,6 +35,12 @@ Configuration::Configuration(QWidget *parent) :
             this, SLOT(closeRequest()));
     connect(ui->m_acceptButton, SIGNAL(clicked()),
             this, SIGNAL(acceptRequest()));
+    connect(ui->m_shapeKnotsButton, SIGNAL(clicked()),
+            this, SLOT(selectShapeKnotsDialog()));
+    connect(ui->m_datapathButton, SIGNAL(clicked()),
+            this, SLOT(selectDatapathDialog()));
+    connect(ui->m_drawButton, SIGNAL(clicked()),
+            this, SLOT(selectDrawDialog()));
 }
 
 Configuration::~Configuration()
@@ -45,6 +52,49 @@ Configuration::~Configuration()
 void Configuration::closeRequest()
 {
     this->close();
+}
+
+
+void Configuration::selectShapeKnotsDialog()
+{
+    QString fileName;
+    QFileDialog dlg(this, tr("Open File"),
+                    "",
+                    tr("Files (*.*)"));
+
+    if(dlg.exec() == QDialog::Accepted){
+        fileName = dlg.selectedFiles().at(0);
+        ui->m_shapeKnotsPathEdit->setText(fileName);
+    }
+}
+
+
+void Configuration::selectDrawDialog()
+{
+    QString fileName;
+    QFileDialog dlg(this, tr("Open File"),
+                    "",
+                    tr("Files (*.*)"));
+
+    if(dlg.exec() == QDialog::Accepted){
+        fileName = dlg.selectedFiles().at(0);
+        ui->m_drawPathEdit->setText(fileName);
+    }
+}
+
+
+void Configuration::selectDatapathDialog()
+{
+    QString fileName;
+    QFileDialog dlg(this, tr("Open File"),
+                    "",
+                    tr("Files (*.*)"));
+    dlg.setFileMode(QFileDialog::Directory);
+
+    if(dlg.exec() == QDialog::Accepted){
+        fileName = dlg.selectedFiles().at(0);
+        ui->m_datatablesPathEdit->setText(fileName);
+    }
 }
 
 

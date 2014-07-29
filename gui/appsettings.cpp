@@ -37,7 +37,6 @@ QString AppSettings::version()
 
 QSettings *AppSettings::settings()
 {
-    qDebug() << settingsFile();
     if (!m_settings)
         m_settings = new QSettings(settingsFile(),  QSettings::NativeFormat);
     return m_settings;
@@ -47,9 +46,9 @@ QSettings *AppSettings::settings()
 QString AppSettings::settingsFile()
 {
 #ifdef WIN32
-    return QString("%appdata%/") + QString(DEFAULT_APPNAME) + QString(DEFAULT_CONFIGURATION_FILENAME) + QString(".ini");
+    return QString("%appdata%/") + QString(DEFAULT_APPNAME) + "/" +QString(DEFAULT_CONFIGURATION_FILENAME) + QString(".ini");
 #else
-    return QDir::homePath() +"/.config/" + QString(DEFAULT_APPNAME) + QString(DEFAULT_CONFIGURATION_FILENAME) +QString(".conf");
+    return QDir::homePath() +"/.config/" + QString(DEFAULT_APPNAME) + "/" + QString(DEFAULT_CONFIGURATION_FILENAME) +QString(".conf");
 #endif
 }
 
@@ -57,16 +56,16 @@ QString AppSettings::settingsFile()
 QString AppSettings::language(const int languageIndex)
 {
     switch (languageIndex) {
-    case 0:
+    case en:
         return "en";
         break;
-    case 1:
+    case es:
         return "es";
         break;
-    case 2:
+    case fr:
         return "fr";
         break;
-    case 3:
+    case ro:
         return "ro";
         break;
     default:
