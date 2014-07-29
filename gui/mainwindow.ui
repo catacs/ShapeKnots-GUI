@@ -480,6 +480,13 @@
       </property>
      </widget>
     </item>
+    <item row="5" column="1">
+     <widget class="QPushButton" name="m_cancelButton">
+      <property name="text">
+       <string>Cancel</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="m_menuBar">
@@ -488,7 +495,7 @@
      <x>0</x>
      <y>0</y>
      <width>749</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="m_menuFile">

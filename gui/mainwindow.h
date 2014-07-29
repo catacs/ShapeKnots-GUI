@@ -37,6 +37,7 @@ public:
 
 signals:
     void start();
+    void cancel();
     void inputSelected(const QString& inputFile);
     void outputSelected(const QString& outputFile);
     void shapeSelected(const QString& outputFile);
@@ -58,6 +59,8 @@ private  slots:
     void singleOffsetDialog();
     void showSettings();
     void showAbout();
+    void startRun();
+    void cancelRun();
 
 private slots:
     void loadSettings();

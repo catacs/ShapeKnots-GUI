@@ -34,11 +34,15 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui \
     configuration.ui \
     about.ui
+RESOURCES += \
+    resources.qrc
 ICON = /img/app.ico
-RESOURCES += resources.qrc
-
 TRANSLATIONS    +=  lang/lang_en.ts \
                     lang/lang_es.ts \
                     lang/lang_fr.ts \
                     lang/lang_ro.ts
 
+win32 {
+RC_FILE += img/icon.rc
+QMAKE_LFLAGS += -static -static-libgcc -static-libstdc++
+}
