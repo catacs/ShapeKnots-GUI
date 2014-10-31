@@ -162,4 +162,3 @@ void ShapeKnotsProcess::setInputFile(const QString &inputFile)
 {
     m_inputFile = inputFile;
 }
-
