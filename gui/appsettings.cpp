@@ -19,6 +19,7 @@
 #include "appsettings.h"
 #include <QApplication>
 #include <QDir>
+#include <QStandardPaths>
 #include <QDebug>
 
 QSettings *AppSettings::m_settings=0;
@@ -38,7 +39,11 @@ QString AppSettings::version()
 QSettings *AppSettings::settings()
 {
     if (!m_settings)
+#ifdef WIN32
+        m_settings = new QSettings(settingsFile(),  QSettings::IniFormat);
+#else
         m_settings = new QSettings(settingsFile(),  QSettings::NativeFormat);
+#endif
     return m_settings;
 }
 
@@ -46,7 +51,7 @@ QSettings *AppSettings::settings()
 QString AppSettings::settingsFile()
 {
 #ifdef WIN32
-    return QString("%appdata%/") + QString(DEFAULT_APPNAME) + "/" +QString(DEFAULT_CONFIGURATION_FILENAME) + QString(".ini");
+    return QStandardPaths::writableLocation(QStandardPaths::DataLocation) + "\\"  + QString(DEFAULT_APPNAME) + "\\" +QString(DEFAULT_CONFIGURATION_FILENAME) + QString(".ini");
 #else
     return QDir::homePath() +"/.config/" + QString(DEFAULT_APPNAME) + "/" + QString(DEFAULT_CONFIGURATION_FILENAME) +QString(".conf");
 #endif
