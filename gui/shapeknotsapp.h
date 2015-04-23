@@ -27,9 +27,15 @@ class ShapeKnotsApp: public QObject
 public:
     ShapeKnotsApp(QObject *parent=0);
 signals:
+    //! Signal to inform about the program exit
+    /*!
+     * \brief exit
+     */
     void exit();
 private:
+    //! MainWindow object where are implemented all user interfeces
     MainWindow m_mainWindow;
+    //! Shapeknots object where is implemented the execution of external program
     ShapeKnotsProcess m_process;
 };
 

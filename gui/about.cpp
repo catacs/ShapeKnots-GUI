@@ -19,6 +19,7 @@
 #include "ui_about.h"
 #include "appsettings.h"
 
+// About constructor
 About::About(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::About)
@@ -27,14 +28,18 @@ About::About(QWidget *parent) :
     ui->m_versionLabel->setText(AppSettings::version());
 }
 
+
+// About destructor
 About::~About()
 {
     delete ui;
 }
 
 
+// Called when something changed in the interface
 void About::changeEvent(QEvent *event)
 {
+    // When the language changed we process it
     if (event->type() == QEvent::LanguageChange)
     {
             // retranslate designer form (single inheritance approach)

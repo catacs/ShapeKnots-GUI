@@ -24,12 +24,12 @@
 
 QSettings *AppSettings::m_settings=0;
 
-
+// Constructor
 AppSettings::AppSettings()
 {
 }
 
-
+// Return the actual app version
 QString AppSettings::version()
 {
     return "0.0.2 beta";

@@ -23,17 +23,47 @@
 #include <QSettings>
 #include "appconstants.h"
 
+/*!
+ * \brief The AppSettings class to load and save all settings in the App.
+ * It is based on singleton pattern, so the it is not necessary to create
+ * the objecct because when it's accesed it's created.
+ * To access it use AppSettings::functionToCall()
+ */
 class AppSettings
 {
 public:
     enum Language {en, es, fr, ro};
 
     AppSettings();
+
+    //! Static member to obtain actual app version.
+    /*!
+     * \sa version()
+     * \return version a QString()
+     */
     static QString version();
+    //! Static member to obtaing app settings
+    /*!
+     * \sa settings()
+     * \return m_settings a QSettings object
+     */
     static QSettings *settings();
+    //! Static member to obtain the settings file
+    /*!
+     * \brief settingsFile
+     * \return QString with the route to settings file
+     */
     static QString settingsFile();
+    //! Static member to obatin actual app language
+    /*!
+     * \brief language
+     * \param languageIndex integer value with language Enum value
+     * \return QString() with language code.
+     */
     static QString language(int languageIndex);
 private:
+    //! Settings pointer
+    /*! Static variable that holds the pointer to QSettings structure */
     static QSettings *m_settings;
 };
 

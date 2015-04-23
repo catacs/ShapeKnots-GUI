@@ -24,7 +24,9 @@
 namespace Ui {
 class About;
 }
-
+/*!
+ * \brief About class is used to show the about user interface menu
+ */
 class About : public QDialog
 {
     Q_OBJECT
